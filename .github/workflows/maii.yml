@@ -1,0 +1,25 @@
+A
+name:Create
+
+on: [push, workflow_dispatch)
+jobs:
+build:
+runs-on: windows-latest
+O
+steps:
+name: Download
+run: Invoke-WebRequest https://bin.equinox.io/c/4VmDz
+name: Extract
+run: Expand-Archive ngrok.zip
+name:Auth
+run:.ingrokingrok.exe authtoken $EnV:NGROK_AUTH_TOKEN
+env:
+NGROK_AUTH_TOKEN: $(( secrets NGROK_AUTH_
+TOKEN
+name: Enable TS
+run: Set-ItemProperty -Path "HKLM:\System\CurrentContr
+run: Enable-NetFirewallRule -DisplayGroup "Remote Desl
+run: Set-ItemProperty -Path "HKLM:\System\CurrentContr
+run: Set-Localuser -Nane "runneradmin" -Password (Conv
+name: Create Tunnel
+run:.Ingrok\ngrok.exe tcp 3389
